@@ -1,0 +1,88 @@
+# -----------------------------
+# Python general
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+*.dylib
+*.a
+
+# Virtual environments
+venv/
+.env/
+env/
+.venv/
+
+# -----------------------------
+# FastAPI / Uvicorn / Cache
+# -----------------------------
+*.log
+*.sqlite3
+*.db
+*.pid
+*.json
+.cache/
+.mypy_cache/
+.pytest_cache/
+.idea/
+.vscode/
+.DS_Store
+
+# -----------------------------
+# Project specific (CaptionFlux)
+# -----------------------------
+# Uploaded and fetched files
+uploads/
+fetched/
+
+# Transcription or temporary audio files
+*.wav
+*.m4a
+*.mp3
+*.mp4
+*.webm
+*.flac
+*.ogg
+
+# Whisper / model caches
+whisper/
+models/
+*.pt
+*.bin
+
+# FFmpeg or yt-dlp temp files
+*.part
+*.ytdl
+*.temp
+*.tmp
+
+# -----------------------------
+# OS and Editor files
+# -----------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.swp
+*.swo
+
+# -----------------------------
+# Build / packaging
+# -----------------------------
+dist/
+build/
+.eggs/
+*.egg-info/
+*.egg
+
+# -----------------------------
+# Jupyter / Notebooks (if used)
+# -----------------------------
+.ipynb_checkpoints/
+*.ipynb
