@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import upload, ws, fetch
+from app.routes import upload, ws, fetch, transcribe
 
 app = FastAPI(title="CaptionFlux API")
 
@@ -15,3 +15,4 @@ app.add_middleware(
 app.include_router(upload.router)
 app.include_router(ws.router)
 app.include_router(fetch.router)
+app.include_router(transcribe.router)
