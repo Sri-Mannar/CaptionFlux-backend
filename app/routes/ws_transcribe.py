@@ -30,7 +30,7 @@ async def websocket_transcribe(ws: WebSocket):
             return
 
         # Process in chunks
-        CHUNK_DURATION = 5 * 1000  # 5 seconds (pydub uses ms)
+        CHUNK_DURATION = 10 * 1000  # 10 seconds (pydub uses ms)
         audio = AudioSegment.from_file(resolved_path)
         total_duration = len(audio)
 
@@ -44,7 +44,13 @@ async def websocket_transcribe(ws: WebSocket):
                 chunk_path = tmp.name
 
             # Transcribe this chunk  language="en"
-            result = model.transcribe(chunk_path )
+            result = model.transcribe(
+                chunk_path,
+                no_speech_threshold=0.1,
+                logprob_threshold=-2.0,
+                condition_on_previous_text=False,
+            )
+
             os.remove(chunk_path)
 
             for seg in result.get("segments", []):

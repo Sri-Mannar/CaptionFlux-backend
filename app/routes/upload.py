@@ -3,7 +3,7 @@ from fastapi import APIRouter, UploadFile, File, HTTPException
 import os, uuid, logging
 from app.services.audio_utils import extract_audio
 
-router = APIRouter(prefix="/upload", tags=["Upload"])
+router = APIRouter(tags=["Upload"])
 
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -11,7 +11,7 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 # Optional: setup simple logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-@router.post("/")
+@router.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
     try:
         file_id = uuid.uuid4().hex
